@@ -34,6 +34,10 @@ gem 'simple_form'
 gem 'rails-footnotes', '>= 3.7.9', :group => :development
 
 
+gem 'thin'
+gem 'therubyracer'
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
