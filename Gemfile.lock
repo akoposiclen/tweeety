@@ -42,7 +42,6 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
-    faker (0.3.1)
     gravatar_image_tag (0.1.0)
     hike (1.2.3)
     i18n (0.6.9)
@@ -126,7 +125,6 @@ PLATFORMS
 DEPENDENCIES
   annotate (= 2.4.1.beta1)
   coffee-rails (~> 3.2.1)
-  faker (= 0.3.1)
   gravatar_image_tag (= 0.1.0)
   jquery-rails
   json

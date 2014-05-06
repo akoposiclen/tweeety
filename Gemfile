@@ -24,7 +24,7 @@ group :assets do
 end
 
 group :development do  
-  gem 'faker', '0.3.1'
+  
   gem 'sqlite3-ruby'
 end
 
