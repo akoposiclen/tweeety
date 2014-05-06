@@ -1,0 +1,20 @@
+  <div class="panel">
+    <div class="row">
+      <div class="large-6 columns">    
+          <%= gravatar_for user, :size => 30 %>
+          <%= link_to user.name, user %>
+      </div>
+
+      
+      <% if current_user.name != user.name  %>
+      
+      <% end %>
+
+      <% if current_user.admin? %>
+        <div class="large-3 columns">
+            <%= link_to "Permanent Ban", user, :method => :delete, :confirm => "You sure to ban?", :title => "Ban #{user.name}" %> 
+        </div>
+
+      <% end %>
+    </div>
+  </div>

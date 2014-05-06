@@ -1,0 +1,95 @@
+<% if signed_in? %>
+
+
+
+    <table>
+        <tr>
+            <td>
+                <h1>Dashboard</h1>
+                <%= render 'shared/micropost_form' %>                
+            </td>
+        </tr>
+    </table>
+    
+    <%= render 'shared/feed' %>
+
+
+
+<% else %>
+
+
+<%= form_for(:session, :url => sessions_path) do |f| %>
+
+<div class="panel">
+    <div class="row">
+
+        <div class="spacer hide-for-small"></div>
+        <div class="spacer"></div>
+        <form id="formPost" action="/" method="post">    
+
+
+            <div class="row" >
+                <div class="large-4 columns"><label></label></div>
+                <div class="large-4 columns">
+                    <h3 class="this-to-center">Sign in</h3>
+                </div>
+                <div class="large-4 columns"><label></label></div>                
+            </div>
+
+            <div class="row" >
+                <div class="large-4 columns"><label></label></div>
+                <div class="large-4 columns">
+                    <center><span id="messages"></span></center>
+                </div>
+                <div class="large-4 columns"><label></label></div>
+                <div class="spacer" ></div>
+            </div>
+
+            <div class="row">
+                <div class="large-4 columns"><label></label></div>
+                <div class="large-4 columns">
+                    <label>Email</label>                                
+                    <%= f.text_field :email %>
+                </div>
+                <div class="large-4 columns"><label></label></div>
+            </div>
+
+            <div class="row">
+                <div class="large-4 columns"><label></label></div>
+                <div class="large-4 columns">
+                    <label>Password</label>                        
+                    <%= f.password_field :password %>
+                </div>
+                <div class="large-4 columns"><label></label></div>
+            </div>
+
+            <div class="row">
+                <div class="large-4 columns"><label></label></div>
+                <div class="large-4 columns">
+                    <center><%= f.submit "log in", :class => 'small button secondary expand'  %></center>
+                </div>
+                <div class="large-4 columns"><label></label></div>
+            </div>
+
+            <div class="row">
+                <div class="large-4 columns"><label></label></div>
+                <div class="large-4 columns">
+                    <center><a href="/signup" class="small button secondary expand" >Sign up</a></center>
+                </div>
+                <div class="large-4 columns"><label></label></div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</div>
+
+<% end %>
+
+
+
+
+<% end %>

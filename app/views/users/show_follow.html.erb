@@ -1,0 +1,44 @@
+
+<div class="row">
+	<div class="large-4 columns">
+		<div class="spacer"></div>
+		<div class="panel">			
+			<h1 class="this-to-center">
+				<%= gravatar_for @user %>			
+			</h1>
+				
+				<label class="this-to-center"><%= link_to @user.name %></label>
+				<label class="this-to-center"><%= link_to user_path(@user), @user %></label>			
+			
+
+			<div class="row">
+
+				<div class="large-12 columns">
+					<span>
+						<%= pluralize(@user.microposts.count, "Post") %>	
+					</span>	<br />
+					<%= render 'shared/stats' %>
+					<br /><br />
+					<%= render 'follow_form' if signed_in? %>
+																								
+				</div>
+
+			</div>
+
+		</div>
+			
+	</div>	
+	<div class="sidebar large-8 columns">
+		<div class="spacer"></div>
+		<div class="panel this-to-center">
+		<h1><%= title %></h1>
+		</div>		
+			<% if @users.any? %>
+				<ul class="users">
+					<%= render @users %>
+					<%= will_paginate @users %>
+				</ul>
+			<% end %>		
+	</div>
+
+</div>

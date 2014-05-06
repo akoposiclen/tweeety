@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+<nav class="top-bar">
+
+    <ul class="title-area">
+        <!-- Title Area -->
+
+        <li class="show-for-medium-up  name">
+
+        </li>
+
+        <li class="hide-for-medium-up  name">
+
+        </li>
+
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>MENU</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <% if signed_in? %>
+                <li><%= link_to  "Dashboard", root_path %>  
+                <li><%= link_to  "Profile", current_user %>     
+                <li><%= link_to  "Users", users_path %>  
+                <li><%= link_to  "Settings", edit_user_path(current_user) %>     
+            <% end %>
+
+
+
+
+
+
+
+        </ul>
+
+        <!-- Right Nav Section -->
+
+        <ul class="right">
+
+            <% if signed_in? %>
+            <li><%= link_to "Sign out", signout_path %></li>
+            <% else %>
+            <li>            
+                <%= link_to "Sign in", signin_path %>
+            </li>
+            <% end %>
+            
+            <li class="hide-for-small">
+                <a href="/">
+                    Tweety
+                </a>
+            </li>
+        </ul>
+    </section>
+</nav>
+
+
+<% flash.each do |key, value| %>
+    <div class="panel <%= key %> this-to-center"><%= value %></div>
+<% end %>
+
+<%= yield %>
+<!--  render layouts/footer  -->
+
+<%= debug(params) if Rails.env.development? %>
+
+<script>
+    document.write('<script src=' +
+            ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+            '.js><\/script>')
+</script>
+
+<script src="js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<%= form_for @user do |f| %>
+
+<div class="panel">
+    <div class="row">
+        
+        
+<div class="spacer"></div>
+
+            <div class="large-4 columns">
+                <h4 class="this-to-center">Sign up</h4>
+            </div>
+
+
+            
+
+     <div class="spacer"></div>
+     <div class="spacer"></div>
+
+
+
+            <div class="row">            
+                <div class="large-4 columns">
+                    
+                    <%= render 'fields', :f => f %>
+
+                    <center><%= f.submit "Sign up", :class => 'small button secondary expand'  %></center>
+
+                </div>
+                <div class="large-2 columns"><label></label></div>
+                <div class="large-6 columns">
+                    <%= render 'shared/error_messages', :object => f.object %>
+                </div>
+            </div>
+
+
+            <hr />
+
+
+
+    </div>
+
+
+</div>
+
+<% end %>

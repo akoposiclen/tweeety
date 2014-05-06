@@ -1,0 +1,73 @@
+
+
+<div class="row">
+	<div class="large-4 columns">
+		<div class="spacer"></div>
+		<div class="panel">			
+			<h1 class="this-to-center">
+				<%= gravatar_for @user %>			
+			</h1>
+				
+				<label class="this-to-center"><%= link_to @user.name %></label>
+				<label class="this-to-center"><%= link_to user_path(@user), @user %></label>			
+			
+
+			<div class="row">
+
+				<div class="large-12 columns">
+					<span>
+						<%= pluralize(@user.microposts.count, "Post") %>	
+					</span>	<br />
+					<%= render 'shared/stats' %>
+					<br /><br />
+					<%= render 'follow_form' if signed_in? %>
+																								
+				</div>
+
+			</div>
+			<div class="spacer"></div>
+			<div class="row">
+
+
+			<% if signed_in? %>
+				<% if current_user.name == @user.name %>
+
+
+					<%= form_for(@micropost) do |f| %>
+						<div class="row collapse">
+
+	                    <div class="small-12 columns">
+		                 	<%= f.text_area :content %>
+		                 	<%= f.submit "Post", :class => 'small button secondary expand'  %>
+	                    </div>
+
+	                </div>
+					<% end %>
+				<% end %>
+			<% end %>
+			</div>
+			
+		</div>
+			
+	</div>	
+	<div class="sidebar large-8 columns">
+		<div class="spacer"></div>
+		<div class="panel this-to-center">
+			<h1>Tweeties</h1>
+		</div>		
+		<% if @user.microposts.any? %>
+			<table class="microposts" summary="User microposts">
+				<% if signed_in? %>
+					<%= render @microposts %>
+					<%= will_paginate @microposts %>
+				<% else %>
+					<div class="panel">
+						You must login to see this post
+					</div>
+				<% end %>				
+			</table>
+			
+		<% end %>
+	</div>
+
+</div>
